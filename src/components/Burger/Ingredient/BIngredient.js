@@ -49,7 +49,7 @@ class bIngredient extends Component {
     
 }
 
-bIngredient.PropTypes = {
+bIngredient.propTypes = {
     choise: PropTypes.string.isRequired
 }
 

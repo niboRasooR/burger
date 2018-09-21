@@ -1,4 +1,11 @@
 import React from 'react';
+
+// Tässä erikoistoiminto jolla injektoidaan 
+// routing propit
+//  muista: higher order component
+// kääritään tämä paska tuohon
+import { withRouter } from 'react-router-dom';
+
 import styles from './Burger.css';
 import BIngredient from './Ingredient/BIngredient'
 const burger = (props) => {
@@ -31,4 +38,5 @@ const burger = (props) => {
 
 };
 
-export default burger;
+//kääritään koko paska että saadaan routingin erikoispropit
+export default withRouter(burger);
