@@ -43,23 +43,21 @@ const reducer = (state = initialState, action) => {
         totalPrice:  state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
       } 
 
-
     case actionTypes.REMOVE_INGREDIENT:
       console.log(" before " + action.ingredientName + " : " + state.ingredients[action.ingredientName])
       
-      const igcopy ={
+      const igcopy = {
         ...state.ingredients
       }
       for (let element in igcopy){
-
         console.log( "REMOVE_INGR " + element + " - " + igcopy[element] ); 
       }
 
+      igcopy[action.ingredientName] = igcopy[action.ingredientName] - 1;
+      
       return {
         ...state,
-        ingredients: {
-          [action.ingredientName]: state.ingredients[action.ingredientName] - 1
-        },
+        ingredients: igcopy,
         totalPrice:  state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
        
       }
