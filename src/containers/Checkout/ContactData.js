@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './ContactData.css';
-
+import {connect} from 'react-redux';
 class ContactData extends React.Component {
     
     state =  {
@@ -22,7 +22,8 @@ class ContactData extends React.Component {
 
         return(
             <div className={style.ContactData} >
-                <h4>Enter info</h4>                
+                <h4>Enter info</h4>             
+            <p> PRICE : { this.props.price}</p>   
                <form>
                     <input type="text" name="name" placeholder="your name" />
                     <input type="email" name="email" placeholder="email" />
@@ -37,4 +38,11 @@ class ContactData extends React.Component {
     }
     
 }
-export default ContactData;
+
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients, 
+        price: state.totalPrice
+    }
+}
+export default connect(mapStateToProps) (ContactData);

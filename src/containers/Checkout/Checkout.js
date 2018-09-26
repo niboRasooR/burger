@@ -2,6 +2,8 @@ import  React, {Component} from "react";
 import {Route} from 'react-router-dom'
 import CheckoutSummary from '../../components/Order/CheckoutSummary';
 
+import {connect} from 'react-redux';
+
 import ContactData from './ContactData'
 class Checkout extends Component {
 
@@ -14,6 +16,8 @@ class Checkout extends Component {
         }
     }
 
+    // EI ENÄÄ TARVITA REDUXIN KANSSA
+    /*
     componentDidMount() {
         const query = 
             new URLSearchParams(this.props.location.search);
@@ -30,7 +34,8 @@ class Checkout extends Component {
                 ingredients: passedingredients
             }
         )
-    }
+    }*/
+
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
     }
@@ -52,7 +57,7 @@ class Checkout extends Component {
                 <CheckoutSummary 
                     checkoutCancelled={this.checkoutCancelledHandler}
                     checkoutContinued={this.checkoutContinued}
-                        ingredients={this.state.ingredients}/>
+                        ingredients={this.props.ings}/>
                
                 <Route 
                     path={this.props.match.path +'/contact-data'}
@@ -63,5 +68,12 @@ class Checkout extends Component {
     }
 
 }
+//nimet reducer.js mukaan
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients
 
-export default Checkout;
+    }
+}
+
+export default connect(mapStateToProps)(Checkout);
