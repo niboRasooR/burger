@@ -1,8 +1,5 @@
 import * as actionTypes from './actions'
-
-
 const initialState = {
-
   ingredients: {
     salad: 0,
     bacon: 0,
@@ -21,7 +18,7 @@ const INGREDIENT_PRICES = {
   bacon: 0.5
 }
 
-
+//ACTION TYPE-käsittely
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     // tässä levitetään staten ingredientsit 
@@ -59,7 +56,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         ingredients: igcopy,
         totalPrice:  state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
-       
+
       }
      
 
