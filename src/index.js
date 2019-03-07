@@ -28,4 +28,6 @@ const app = (
 
 // Renderiin consti sisään
 ReactDOM.render(app , document.getElementById('root'));
+// VOI OLLA ETTÄ PITÄÄ OTTAA TÄMÄ POIS
+// Jos loginin yhteydessä näkyy blank screen
 registerServiceWorker();
